@@ -3,10 +3,10 @@ class BooksController < ApplicationController
   before_action :set_book, only:[:show, :destroy]
 
   def show
-    @book=Book.find(params[:id])
+    # @book=Book.find(params[:id])
     respond_to do |format|
       format.html
-      format.json
+      format.json { render json: @book }
     end
   end
 
@@ -22,6 +22,6 @@ class BooksController < ApplicationController
   private
 
   def set_book
-    @book=Boook.find(params[:id])
+    @book=Book.find(params[:id])
   end
 end
